@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using WeatherPanel.Models;
+using WeatherPanel.Services.ApiClients;
 
 namespace WeatherPanel.Services
 {
@@ -12,12 +16,11 @@ namespace WeatherPanel.Services
 
     public WeatherModel GetWeather()
     {
-      return new WeatherModel
-      {
-        temp = 1.5f,
-        humidity = 70,
-        airPressure = 1020
-      };
+
+      MetaWeatherClient client;
+      client = new MetaWeatherClient();
+      return client.GetWeather();
+
     }
 
   }
