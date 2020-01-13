@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using WeatherPanel.Models;
+﻿using WeatherPanel.Models;
 using WeatherPanel.Services.ApiClients;
 
 namespace WeatherPanel.Services
@@ -17,8 +10,8 @@ namespace WeatherPanel.Services
     public WeatherModel GetWeather()
     {
 
-      MetaWeatherClient client;
-      client = new MetaWeatherClient();
+      //var client = new MetaWeatherClient();
+      var client = new OpenWeatherClient();
       return client.GetWeather();
 
     }
